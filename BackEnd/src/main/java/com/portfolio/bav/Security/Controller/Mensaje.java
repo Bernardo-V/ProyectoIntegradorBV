@@ -12,6 +12,7 @@ public class Mensaje {
         this.mensaje = mensaje;
     }
 
+    //Getter y Setter
     public String getMensaje() {
         return mensaje;
     }

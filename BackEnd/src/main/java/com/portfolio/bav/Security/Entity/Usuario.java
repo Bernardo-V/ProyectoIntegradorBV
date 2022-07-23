@@ -2,6 +2,7 @@ package com.portfolio.bav.Security.Entity;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,13 +21,14 @@ public class Usuario {
     @NotNull
     private String nombre;
     @NotNull
+    @Column(unique = true)
     private String nombreUsuario;
     @NotNull
     private String email;
     @NotNull
     private String password;
     @ManyToMany (fetch = FetchType.EAGER)
-    @JoinTable (name = "usuario_rol", joinColumns = @JoinColumn (name ="usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    @JoinTable (name = "usuario_rol", joinColumns = @JoinColumn(name ="usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
     
     //Constructor
